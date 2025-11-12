@@ -11,6 +11,8 @@
 #include "pointer.dtsi"
 #include "encoders.dtsi"
 #include "visuals.dtsi"
+#include <input/processors.dtsi>
+#include <behaviors/input_gestures_accel.dtsi>
 
 #define DECLARE_ENCODERS sensor-bindings = <&rotenc_follower 10 8 &rotenc_follower 9 11>
 
@@ -162,9 +164,9 @@
 
 		scrlsens: p2sm_scroll_sensitivity {
 			feedback-duration = <65>;
-			step = <10>;
+			step = <1>;
 			min-step = <2>;
-			max-step = <12>;
+			max-step = <6>;
 		};
 
 		scrlsenstog: p2sm_sens_toggle {

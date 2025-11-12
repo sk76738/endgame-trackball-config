@@ -5,6 +5,8 @@
 #include <behaviors/p2sm_behaviors.dtsi>
 #include <behaviors/rate_limit.dtsi>
 #include <behaviors/auto_hold.dtsi>
+#include <input/processors.dtsi>
+#include <behaviors/input_gestures_accel.dtsi>
 
 &zip_2s_mixer {
 	status = "okay";
@@ -50,11 +52,11 @@
 		};
 	};
 
-	trackball {
+  trackball {
 		compatible = "zmk,input-listener";
 		device = <&zip_2s_mixer>;
-		input-processors = <&zip_ble_report_rate_limit>;
-	};
+    input-processors = <&zip_xy_scaler 1 15>, <&pointer_accel>, <&zip_ble_report_rate_limit>;
+  };
 
 	trackball_primary_listener: trackball_primary_listener {
 		compatible = "zmk,input-listener";
@@ -127,4 +129,18 @@
 		xy-swap;
 		enable-pm-support;
 	};
+};
+
+&pointer_accel {
+  status = "okay";
+  compatible = "zmk, input-processors-acceleration";
+  input-type = <INPUT_EV_REL>;
+  codes = <INPUT_REL_X INPUT_REL_Y>;
+  input-type = <INPUT_EV_REL>;
+  track-remainders;
+  min-factor = <100>;
+  max-factor = <1000>;
+  speed-threshold = <1000>;
+  speed-max = <1000>;
+  acceleration-exponent = <2>;
 };

@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: efogdev
       url-base: https://github.com/efogdev
+    - name: nuovotaka
+      url-base: https://github.com/nuovotaka
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -32,6 +34,9 @@ manifest:
       revision: main
     - name: zmk-behavior-follower
       remote: efogdev
+      revision: main
+    - name: zmk-pointing-acceleration-alpha
+      remote: nuovotaka
       revision: main
   self:
     path: config

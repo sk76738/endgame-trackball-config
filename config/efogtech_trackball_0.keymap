@@ -18,10 +18,10 @@
 #define LAYER_USER 5
 
 #define SCROLL_MULTIPLIER 1
-#define SCROLL_DIVISOR 3
+#define SCROLL_DIVISOR 10
 
 #define SNIPE_MULTIPLIER 1
-#define SNIPE_DIVISOR 4
+#define SNIPE_DIVISOR 6
 
 / {
 	keymap {
